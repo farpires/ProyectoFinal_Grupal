@@ -5,6 +5,7 @@
  */
 package categoria;
 
+import com.google.gson.Gson;
 import daogenerico.DAOGenerico;
 import daogenerico.DAOMetodos;
 import daogenerico.ErroresGenerales;
@@ -68,12 +69,11 @@ public class categoriaDAO extends DAOGenerico implements DAOMetodos<categoria,ca
     @Override
     public boolean UpdateRecord(categoria Objeto) throws ErroresGenerales {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     int RESULTADO = 0;   
-     /*SELECT idusuario, usuarionombre, usuariopassword, usuarioemail, iddistribuidora
-	FROM public.usuario;*/
+           int RESULTADO = 0;
+        
         try 
         {
-            STATEMENT = CON.getCon().prepareStatement("update categoria set categorianombre = ?,iddistribuidora = ? where idcategoria = ?");
+            STATEMENT = CON.getCon().prepareStatement("update categoria set categorianombre = ?,iddistribuidora= ? where idcategoria = ?");
         
             STATEMENT.setString(1,Objeto.categorianombre);
             STATEMENT.setLong(2,Objeto.getIddistribuidora());
@@ -106,9 +106,7 @@ public class categoriaDAO extends DAOGenerico implements DAOMetodos<categoria,ca
     @Override
     public boolean DeleteRecord(categoria Objeto) throws ErroresGenerales {
       //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-       int RESULTADO = 0;
-    /*DELETE FROM public.usuario
-	WHERE <condition>;*/
+   int RESULTADO = 0;
         
         try 
         {
@@ -136,12 +134,7 @@ public class categoriaDAO extends DAOGenerico implements DAOMetodos<categoria,ca
             throw new ErroresGenerales(e.getMessage()); 
         }    
         
-        return false;         
-    
-    
-    
-    
-    
+        return false;    
     }
 
     @Override
@@ -191,12 +184,65 @@ public class categoriaDAO extends DAOGenerico implements DAOMetodos<categoria,ca
 
     @Override
     public String LoadRecordToJSON(Long PK) throws ErroresGenerales {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    categoria P = new categoria();
+        Gson Conversor = new Gson();
+        
+        P = this.LoadRecord(PK);
+        
+        String SalidaDeObjetoEnFormatoJson = Conversor.toJson(P);
+        
+        return (SalidaDeObjetoEnFormatoJson);
+    
     }
 
     @Override
     public categoria LoadRecord(String ComandoSQL) throws ErroresGenerales {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    categoria Salida = null;
+      
+        int RESULTADO = 0;
+        
+        ResultSet RS;
+        
+        try 
+        {
+            STATEMENT = CON.getCon().prepareStatement(ComandoSQL);            
+            
+            RS = STATEMENT.executeQuery();
+            
+            while (RS.next())
+            {
+                Salida = new categoria();
+                
+                Salida.setIdcategoria(RS.getLong("idcategoria"));
+                Salida.setCategorianombre(RS.getString("categorianombre"));
+                Salida.setIdcategoria(RS.getLong("iddistribuidora"));
+                
+                return Salida;            
+            }
+            
+          
+            
+        }catch (PSQLException e) 
+        {  
+            throw new ErroresGenerales(e.getMessage());                
+        }
+        catch(SQLException e) 
+        {              
+            throw new ErroresGenerales(e.getMessage());               
+        }
+        catch(Exception e)
+        {
+            throw new ErroresGenerales(e.getMessage()); 
+        }
+        
+        return Salida;     
+    
+    
+    
     }
 
     @Override

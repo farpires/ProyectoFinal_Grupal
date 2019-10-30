@@ -23,7 +23,7 @@ public class P04_ProbandoLoadRecordProducto {
        producto P = null;
        productoDAO MyDAO = new productoDAO();
         try {
-            P = MyDAO.LoadRecord("select * from producto where productonombre like '%Coca%'");
+            P = MyDAO.LoadRecord("select * from producto where productonombre like '%riki%'");
             if (P != null)
             {
                 System.out.println(P.toString());

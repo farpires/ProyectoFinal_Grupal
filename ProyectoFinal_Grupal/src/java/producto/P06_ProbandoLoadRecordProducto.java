@@ -23,7 +23,7 @@ public class P06_ProbandoLoadRecordProducto {
         producto P = null;
         productoDAO MyDAO = new productoDAO();
         try {
-            P = MyDAO.LoadRecord(Long.valueOf(6));
+            P = MyDAO.LoadRecord(Long.valueOf(8));
             if (P != null)
             {
                 System.out.println(P.toString());

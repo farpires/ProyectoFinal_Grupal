@@ -19,14 +19,14 @@ public class P03_ProbandoUpdateRecordProducto {
      */
     public static void main(String[] args) 
     {
-        producto ProductoModificar = new producto(Long.valueOf(5), "Fanta Manzana  la que le gusta a Arpires", "567876546542", "70", "29/10/2019",Long.valueOf(1));
+        producto ProductoModificar = new producto(Long.valueOf(5), "Un riki riki vodka", "00000000", "150", "30/10/2019",Long.valueOf(1));
         productoDAO MyDAO = new productoDAO();
 
         try 
         {
             if (MyDAO.UpdateRecord(ProductoModificar))
             {
-                System.out.println("MODIFICADO !!!");
+                System.out.println("Producto MODIFICADO: " + ProductoModificar);
             }
             else
             {

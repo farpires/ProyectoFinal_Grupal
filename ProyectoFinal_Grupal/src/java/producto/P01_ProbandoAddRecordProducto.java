@@ -21,13 +21,13 @@ public class P01_ProbandoAddRecordProducto {
      */
     public static void main(String[] args) 
     {
-        producto productoentrada = new producto(Long.valueOf(0), "Sprite", "765432456754", "82", "29/10/2019",Long.valueOf(2));
+        producto productoentrada = new producto(Long.valueOf(0), "Un riki riki vodka", "00000000", "150", "29/10/2019",Long.valueOf(1));
         producto productosalida = null;
         productoDAO MyDAO = new productoDAO();
         try 
         {
             productosalida = MyDAO.AddRecord(productoentrada);
-            System.out.println("Producto : " + productosalida.toString());
+            System.out.println("Producto agregado: " + productosalida.toString());
         } 
         catch (ErroresGenerales ex) 
         {

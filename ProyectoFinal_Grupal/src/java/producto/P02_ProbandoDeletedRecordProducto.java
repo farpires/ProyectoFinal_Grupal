@@ -20,12 +20,12 @@ public class P02_ProbandoDeletedRecordProducto {
      */
     public static void main(String[] args) 
     {
-       producto productoeliminar = new producto(Long.valueOf(7),"sprite","0","0","30/10/2019",Long.valueOf(2));
+       producto productoeliminar = new producto(Long.valueOf(5),"","0","","",Long.valueOf(0));
        productoDAO MyDAO = new productoDAO();
         try {
             if (MyDAO.DeleteRecord(productoeliminar))
             {
-                System.out.println("ELIMINADO");
+                System.out.println("Producto ELIMINADO");
             }
             else
             {

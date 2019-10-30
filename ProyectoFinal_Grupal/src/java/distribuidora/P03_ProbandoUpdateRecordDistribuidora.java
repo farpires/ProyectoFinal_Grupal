@@ -20,7 +20,7 @@ public class P03_ProbandoUpdateRecordDistribuidora {
      */
     public static void main(String[] args) 
     {
-       distribuidora distribuidoramodificar = new distribuidora(Long.valueOf(5),"7683722","Cepita","San Martin 977");
+       distribuidora distribuidoramodificar = new distribuidora(Long.valueOf(8),"7683722","Cepita","San Martin 77777");
        distribuidoradao MyDAO = new distribuidoradao();
        
         try {

@@ -19,7 +19,7 @@ public class P02_ProbandoDeletedRecordDistribuidora {
      */
     public static void main(String[] args) 
     {
-      distribuidora distribuidoraeliminar = new distribuidora(Long.valueOf(3), "", "", "");
+      distribuidora distribuidoraeliminar = new distribuidora(Long.valueOf(9), "", "", "");
       distribuidoradao MyDAO = new distribuidoradao();
         try {
             if (MyDAO.DeleteRecord(distribuidoraeliminar))

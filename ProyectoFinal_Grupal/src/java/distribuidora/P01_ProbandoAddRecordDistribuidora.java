@@ -20,7 +20,7 @@ public class P01_ProbandoAddRecordDistribuidora {
      */
     public static void main(String[] args) 
     {
-        distribuidora distribuidoraentrada = new distribuidora(Long.valueOf(0),"95236783", "Cepita","Palermo 3899");
+        distribuidora distribuidoraentrada = new distribuidora(Long.valueOf(0),"95236783", "Sancor","Sarmiento 3899");
         distribuidora distribuidorasalida = null;
         distribuidoradao MyDao = new distribuidoradao();
         

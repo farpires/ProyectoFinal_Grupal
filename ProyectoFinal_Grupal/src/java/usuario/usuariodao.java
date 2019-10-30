@@ -281,8 +281,11 @@ public class usuariodao extends DAOGenerico implements DAOMetodos<usuario,usuari
 
                 P.setIdusuario(RS.getLong("idusuario"));
                 P.setUsuarionombre(RS.getString("usuarionombre"));
-                P.setUsuariopassword("usuariopassword");
-                P.setUsuarioemail("usuarioemail");
+                P.setUsuariopassword(RS.getString("usuariopassword"));
+                P.setUsuarioemail(RS.getString("usuarioemail"));
+                P.setDistribuidoracuit(RS.getString("distribuidoracuit"));
+                P.setDistribuidoranombre(RS.getString("distribuidoranombre"));
+                P.setDistribuidoradomicilio(RS.getString("distribuidoradomicilio"));
                 P.setIddistribuidora(RS.getLong("iddistribuidora"));
                 Salida.add(P);
             }

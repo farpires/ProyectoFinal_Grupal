@@ -48,34 +48,3 @@ public class P07_ProbandoGetJoinAll {
     }
     
 }
-/*
-List<productoextendido> ListaDevuelta = new ArrayList<productoextendido>();
-
-        productoDAO MyDAO = new productoDAO();
-
-        try 
-        {
-            ListaDevuelta = MyDAO.getJoinAll("select producto.*,categoria.categorianombre \n" +
-"    from producto inner join categoria \n" +
-"    on producto.idcategoria = categoria.idcategoria");
-
-            if (ListaDevuelta != null)
-            {
-                for (int i = 0; i < ListaDevuelta.size();i++)
-                {
-                    System.out.println(ListaDevuelta.get(i).toString());
-                }
-            }
-            else
-            {
-                System.out.println("NO LO ENCONTRAMOS");
-            }
-
-        } catch (ErroresGenerales ex) 
-        {
-            System.out.println(ex.getMensajeDeErrorSalida());
-            System.out.println("HUBO UN ERROR !!! " + ex.getMensajeDeErrorGeneral());
-        }
-
-
-*/

@@ -17,7 +17,7 @@ public class P01_ProbandoAddRecordUsuario {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         usuario usuarioentrada = new usuario (Long.valueOf(0),"Matias","123456","matias@hotmail.com",Long.valueOf(1));
+         usuario usuarioentrada = new usuario (Long.valueOf(0),"martin","669964","martin@hotmail.com",Long.valueOf(3));
         
         usuario usuariosalida = null;
         

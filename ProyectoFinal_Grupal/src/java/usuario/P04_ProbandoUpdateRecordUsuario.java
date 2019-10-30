@@ -18,7 +18,7 @@ public class P04_ProbandoUpdateRecordUsuario {
      */
     public static void main(String[] args) 
     {
-        usuario usuariomodificar = new usuario(Long.valueOf(1),"matiasprueba","26102019","prueba@gmail",Long.valueOf(2));
+        usuario usuariomodificar = new usuario(Long.valueOf(4),"probando modificacion solo una","2610261000","modificacion@gmail",Long.valueOf(1));
         usuariodao MyDao = new usuariodao();
          try 
         {

@@ -24,7 +24,7 @@ public class P05_ProbandoLoadRecordUsuario {
         
         try 
         {
-            P = MyDAO.LoadRecord("select * from usuario where usuarionombre like '%matias%'");
+            P = MyDAO.LoadRecord("select * from usuario where usuarionombre like '%m%'");
             
             if (P != null)
             {

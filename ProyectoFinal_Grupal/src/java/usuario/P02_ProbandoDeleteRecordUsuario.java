@@ -20,7 +20,7 @@ public class P02_ProbandoDeleteRecordUsuario {
     {
        
       
-        usuario usuarioEliminar = new usuario(Long.valueOf(3), "matias","43535","Modificado", Long.valueOf(3));
+        usuario usuarioEliminar = new usuario(Long.valueOf(4), " "," "," ", Long.valueOf(0));
         
         usuariodao MyDAO = new usuariodao();
         

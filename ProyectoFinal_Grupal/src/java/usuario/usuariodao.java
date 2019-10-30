@@ -74,25 +74,39 @@ public class usuariodao extends DAOGenerico implements DAOMetodos<usuario,usuari
 
     @Override
     public boolean UpdateRecord(usuario Objeto) throws ErroresGenerales {
-        int RESULTADO = 0;
-        try {
-            STATEMENT = CON.getCon().prepareStatement("UPDATE usuario SET  usuarionombre=?, usuariopassword=?, usuarioemail=?, iddistribuidora=?");
-            STATEMENT.setString(1, Objeto.usuarionombre);
-            STATEMENT.setString(2, Objeto.usuariopassword);
-            STATEMENT.setString(3, Objeto.usuarioemail);
-            STATEMENT.setLong(4, Objeto.iddistribuidora);
+    int RESULTADO = 0;   
+     /*SELECT idusuario, usuarionombre, usuariopassword, usuarioemail, iddistribuidora
+	FROM public.usuario;*/
+        try 
+        {
+            STATEMENT = CON.getCon().prepareStatement("update usuario set usuarionombre = ?, usuariopassword = ?,usuarioemail = ?, iddistribuidora = ? where idusuario = ?");
+        
+            STATEMENT.setString(1,Objeto.usuarionombre);
+            STATEMENT.setString(2,Objeto.usuariopassword);
+            STATEMENT.setString(3,Objeto.usuarioemail);
+            STATEMENT.setLong(4,Objeto.getIddistribuidora());
+            STATEMENT.setLong(5,Objeto.getIdusuario());
+            
             RESULTADO = STATEMENT.executeUpdate();
-            if (RESULTADO > 0) {
+            
+            if (RESULTADO > 0)
+            {
                 return true;
             }
-        } catch (PSQLException e) {
-            throw new ErroresGenerales(e.getMessage());
-        } catch (SQLException e) {
-            throw new ErroresGenerales(e.getMessage());
-        } catch (Exception e) {
-            throw new ErroresGenerales(e.getMessage());
+            
+        }catch (PSQLException e) 
+        {  
+            throw new ErroresGenerales(e.getMessage());                
         }
-
+        catch(SQLException e) 
+        {              
+            throw new ErroresGenerales(e.getMessage());               
+        }
+        catch(Exception e)
+        {
+            throw new ErroresGenerales(e.getMessage()); 
+        }     
+        
         return false;
     }
 

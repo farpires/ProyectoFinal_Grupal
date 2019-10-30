@@ -24,7 +24,7 @@ public class P03_ProbandoLoadRecordUsuario {
 
         try 
         {
-            U = MyDAO.LoadRecord(Long.valueOf(1));
+            U = MyDAO.LoadRecord(Long.valueOf(6));
 
             if (U != null)
             {

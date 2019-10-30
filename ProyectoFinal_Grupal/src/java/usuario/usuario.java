@@ -80,6 +80,4 @@ public class usuario {
         return "usuario{" + "idusuario=" + idusuario + ", usuarionombre=" + usuarionombre + ", usuariopassword=" + usuariopassword + '}';
     }
      
-     
-    
 }

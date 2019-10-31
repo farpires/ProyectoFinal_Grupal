@@ -51,13 +51,13 @@ public class categoriaWS extends HttpServlet {
         
         if (TipoProceso == 4) // Es una Consulta
         {
-            String NombreProducto = "";    
+            String NombreCategoria = "";    
             String ComandoSQL = ""; 
-            NombreProducto = request.getParameter("ProductoNombreABuscar");
+            NombreCategoria  = request.getParameter("CategoriaNombreABuscar");
             
             categoriaDAO MyProductoDAO = new  categoriaDAO();
                                 
-            if (NombreProducto.isEmpty())
+            if (NombreCategoria.isEmpty())
             {
                 ComandoSQL = "select categoria.*,distribuidora.distribuidoranombre from categoria inner join distribuidora on categoria.iddistribuidora = distribuidora.iddistribuidora";   
             }

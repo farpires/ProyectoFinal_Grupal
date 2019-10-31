@@ -330,7 +330,8 @@ public class productoDAO extends DAOGenerico implements DAOMetodos<producto,prod
 
     @Override
     public String getJoinAllToJSON(String ComandoSQL) throws ErroresGenerales {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return(this.getAllToJSON(ComandoSQL));
     }
     
 }

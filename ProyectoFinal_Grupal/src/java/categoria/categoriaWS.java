@@ -63,7 +63,7 @@ public class categoriaWS extends HttpServlet {
             }
             else
             {
-                ComandoSQL = "select categoria.*,distribuidora.distribuidoranombre from categoria inner join distribuidora on categoria.iddistribuidora = distribuidora.iddistribuidora where categoria.categorianombre like '%\" + NombreProducto.trim() + \"%'";
+                ComandoSQL = "select categoria.*,distribuidora.distribuidoranombre from categoria inner join distribuidora on categoria.iddistribuidora = distribuidora.iddistribuidora where categoria.categorianombre like '%\" + NombreCategoria.trim() + \"%'";
             }  
             
             try 

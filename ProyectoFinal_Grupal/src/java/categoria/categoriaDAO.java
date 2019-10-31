@@ -285,8 +285,10 @@ public class categoriaDAO extends DAOGenerico implements DAOMetodos<categoria, c
     }
 
     @Override
-    public String getJoinAllToJSON(String ComandoSQL) throws ErroresGenerales {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getJoinAllToJSON(String ComandoSQL) throws ErroresGenerales 
+    {
+        return(this.getAllToJSON(ComandoSQL));
+       
     }
 
 }

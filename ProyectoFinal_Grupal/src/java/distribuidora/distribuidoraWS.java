@@ -56,7 +56,7 @@ public class distribuidoraWS extends HttpServlet {
                                 
             if (NombreDistribuidora.isEmpty())
             {
-                ComandoSQL = "select distribuidora.*,distribuidora.distribuidoranombre from distribuidora";   
+                ComandoSQL = "select distribuidora.* from distribuidora";   
             }
             else
             {

@@ -30,6 +30,11 @@ public class distribuidora {
         this.distribuidoranombre = distribuidoranombre;
         this.distribuidoradomicilio = distribuidoradomicilio;
     }
+
+    distribuidora(long parseLong, String delet) 
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

@@ -34,9 +34,9 @@ public class distribuidoradao extends DAOGenerico implements DAOMetodos<distribu
             STATEMENT = CON.getCon().prepareStatement("insert into distribuidora (distribuidoracuit,distribuidoranombre,distribuidoradomicilio) values (?,?,?)");
 
             
-            STATEMENT.setString(1,Objeto.distribuidoracuit);
-             STATEMENT.setString(2,Objeto.distribuidoranombre);
-              STATEMENT.setString(3,Objeto.distribuidoradomicilio);
+            STATEMENT.setString(1,Objeto.getDistribuidoracuit());
+             STATEMENT.setString(2,Objeto.getDistribuidoranombre());
+              STATEMENT.setString(3,Objeto.getDistribuidoradomicilio());
            
             
            

@@ -36,15 +36,7 @@ public class distribuidoraWS extends HttpServlet {
         String MensajeADevolverEnFormatoJSON = "";
         
         int TipoProceso = 0;
-        TipoProceso = Integer.valueOf(request.getParameter("TipoProceso"));
-        
-      
-         
-         
-        
-     
-        
-        
+        TipoProceso = Integer.valueOf(request.getParameter("TipoProceso"));  
         
         if (TipoProceso == 4) // Es una Consulta
         {
@@ -73,13 +65,9 @@ public class distribuidoraWS extends HttpServlet {
             }
         }
         
-        try (PrintWriter out = response.getWriter())
-        {
-            out.println(MensajeADevolverEnFormatoJSON);
-            
-        }
         
-        /*
+        
+        
         else
         {                       
             // Es 1 = Alta, 2 = Modificacion, 3 = Eliminacion
@@ -98,10 +86,10 @@ public class distribuidoraWS extends HttpServlet {
                     PK = Long.valueOf(request.getParameter("PK"));
                     if (PK > 0)
                     {
-                         categoriaDAO MyProductoDAO = new  categoriaDAO();                    
+                         distribuidoradao MyDistribuidoraDAO = new  distribuidoradao();                    
                         try 
                         {
-                            MensajeADevolverEnFormatoJSON = MyProductoDAO.LoadRecordToJSON(PK);                                             
+                            MensajeADevolverEnFormatoJSON = MyDistribuidoraDAO.LoadRecordToJSON(PK);                                             
                         } 
                         catch (ErroresGenerales ex) 
                         {
@@ -120,17 +108,24 @@ public class distribuidoraWS extends HttpServlet {
             }          
         }
         
-        response.setContentType("text/html;charset=UTF-8");
+       response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter())
         {
             out.println(MensajeADevolverEnFormatoJSON);
-            
+            /* TODO output your page here. You may use following sample code.
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ProductoWS</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ProductoWS at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+            */
         }
     
-        */
-        
-        
-        
+ 
         
     }
           private String ProcesarAltaBajaModificacion(int TipoProceso,String ParametroEntrada)
@@ -195,6 +190,7 @@ public class distribuidoraWS extends HttpServlet {
                 }
             }
         }
+       
       
         return SalidaJSON;        
     }

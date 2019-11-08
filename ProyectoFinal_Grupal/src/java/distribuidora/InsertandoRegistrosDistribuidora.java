@@ -27,7 +27,7 @@ public class InsertandoRegistrosDistribuidora {
     {
         distribuidora P1 = new distribuidora();
         P1.setDistribuidoracuit("3232323232");
-        P1.setDistribuidoranombre("Prueba 6/11/2019");
+        P1.setDistribuidoranombre("Prueba");
         P1.setDistribuidoradomicilio("Calle Espero que ande el proyecto 777");
         Long PK = Long.valueOf(0);
         //System.out.println("");

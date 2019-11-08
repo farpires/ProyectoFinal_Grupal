@@ -27,6 +27,7 @@ public class distribuidoradao extends DAOGenerico implements DAOMetodos<distribu
         distribuidora Salida = null;
         Long PK = Long.valueOf(0);
         int RESULTADO = 0;
+        //hola
         
         try 
         {

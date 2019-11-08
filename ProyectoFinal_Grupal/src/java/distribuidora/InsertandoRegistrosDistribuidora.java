@@ -30,6 +30,7 @@ public class InsertandoRegistrosDistribuidora {
         P1.setDistribuidoranombre("Prueba 6/11/2019");
         P1.setDistribuidoradomicilio("Calle Espero que ande el proyecto 777");
         Long PK = Long.valueOf(0);
+        //System.out.println("");
         
         /* AQUI TENGO EL CÓDIGO QUE EJECUTA EL COMANDO SQL A TRAVES DE LA CONEXION ESTABLECIDA */
         

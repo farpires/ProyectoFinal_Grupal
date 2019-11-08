@@ -34,6 +34,7 @@ public class distribuidoraWS extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String MensajeADevolverEnFormatoJSON = "";
+        //hola
         
         int TipoProceso = 0;
         TipoProceso = Integer.valueOf(request.getParameter("TipoProceso"));  

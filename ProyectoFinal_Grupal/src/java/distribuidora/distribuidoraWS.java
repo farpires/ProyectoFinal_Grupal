@@ -54,7 +54,7 @@ public class distribuidoraWS extends HttpServlet {
             }
             else
             {
-                ComandoSQL = "select distribuidora.*,distribuidora.distribuidoranombre from distribuidora where distribuidora.distribuidoranombre like '%\" + NombreDistribuidora.trim() + \"%'";
+                ComandoSQL = "select distribuidora.*,distribuidora.distribuidoranombre from distribuidora where distribuidora.distribuidoranombre like '%" + NombreDistribuidora.trim() + "%'";
             }  
             
             try 

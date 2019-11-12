@@ -24,7 +24,7 @@ public class P01_ProbandoAddRecord {
         // TODO code application logic here
         /*"insert into usuario (idusuario, usuarionombre, usuariopassword, usuarioemail, iddistribuidora)*/
         
-        categoria ProductoEntrada = new categoria(Long.valueOf(0),"bebida2",Long.valueOf(1));
+        categoria ProductoEntrada = new categoria(Long.valueOf(0),"bebida2",Long.valueOf(3));
         
         categoria ProductoSalida = null;
         

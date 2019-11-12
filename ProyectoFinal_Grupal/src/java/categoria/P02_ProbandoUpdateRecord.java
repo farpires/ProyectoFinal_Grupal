@@ -24,7 +24,7 @@ public class P02_ProbandoUpdateRecord {
         // TODO code application logic here
           /*SELECT idusuario, usuarionombre, usuariopassword, usuarioemail, iddistribuidora
 	FROM public.usuario;*/
-      categoria UsuarioModificar = new categoria(Long.valueOf(2),"CerealesModificado",Long.valueOf(1));      
+      categoria UsuarioModificar = new categoria(Long.valueOf(2),"CerealesModificado",Long.valueOf(3));      
         
      categoriaDAO MyDAO = new categoriaDAO();
         

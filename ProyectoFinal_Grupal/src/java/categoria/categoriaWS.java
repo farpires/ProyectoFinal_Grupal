@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import daogenerico.ErroresGenerales;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,55 +33,40 @@ public class categoriaWS extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-
-        String MensajeADevolverEnFormatoJSON = "";
+       String MensajeADevolverEnFormatoJSON = "";
         
         int TipoProceso = 0;
         TipoProceso = Integer.valueOf(request.getParameter("TipoProceso"));
-        
-      
-         
-         
-        
-     
-        
-        
         
         if (TipoProceso == 4) // Es una Consulta
         {
             String NombreCategoria = "";    
             String ComandoSQL = ""; 
-            NombreCategoria  = request.getParameter("CategoriaNombreABuscar");
+            NombreCategoria = request.getParameter("CategoriaNombreABuscar");
             
-            categoriaDAO MyProductoDAO = new  categoriaDAO();
+            categoriaDAO MyCategoriaDAO = new categoriaDAO();
                                 
             if (NombreCategoria.isEmpty())
             {
-                ComandoSQL = "select categoria.*,distribuidora.distribuidoranombre from categoria inner join distribuidora on categoria.iddistribuidora = distribuidora.iddistribuidora";   
+               /* ComandoSQL = "select producto.*,categoria.categorianombre from producto inner join categoria on producto.categoriapk = categoria.categoriapk";   */
+            ComandoSQL = "select categoria.*,distribuidora.distribuidoranombre from categoria inner join distribuidora on categoria.iddistribuidora = distribuidora.iddistribuidora";   
+           
             }
             else
             {
-                ComandoSQL = "select categoria.*,distribuidora.distribuidoranombre from categoria inner join distribuidora on categoria.iddistribuidora = distribuidora.iddistribuidora where categoria.categorianombre like '%\" + NombreCategoria.trim() + \"%'";
+                ComandoSQL = "select producto.*,categoria.categorianombre from producto inner join categoria on producto.categoriapk = categoria.categoriapk where producto.productonombre like '%" + NombreCategoria.trim() + "%'";
+              ComandoSQL = "select categoria.*,distribuidora.distribuidoranombre from categoria inner join distribuidora on categoria.iddistribuidora = distribuidora.iddistribuidora where categoria.categorianombre like '%" + NombreCategoria.trim() + "%'";
+         
             }  
             
             try 
             {
-                MensajeADevolverEnFormatoJSON = MyProductoDAO.getJoinAllToJSON(ComandoSQL);
-               
+                MensajeADevolverEnFormatoJSON = MyCategoriaDAO.getJoinAllToJSON(ComandoSQL);
             } catch (ErroresGenerales ex) 
             {
                 MensajeADevolverEnFormatoJSON = ex.getMensajeDeErrorGeneral();
             }
         }
-        
-        try (PrintWriter out = response.getWriter())
-        {
-            out.println(MensajeADevolverEnFormatoJSON);
-            
-        }
-        
-        /*
         else
         {                       
             // Es 1 = Alta, 2 = Modificacion, 3 = Eliminacion
@@ -101,10 +85,10 @@ public class categoriaWS extends HttpServlet {
                     PK = Long.valueOf(request.getParameter("PK"));
                     if (PK > 0)
                     {
-                         categoriaDAO MyProductoDAO = new  categoriaDAO();                    
+                        categoriaDAO MyCategoriaDAO = new categoriaDAO();                    
                         try 
                         {
-                            MensajeADevolverEnFormatoJSON = MyProductoDAO.LoadRecordToJSON(PK);                                             
+                            MensajeADevolverEnFormatoJSON = MyCategoriaDAO.LoadRecordToJSON(PK);                                             
                         } 
                         catch (ErroresGenerales ex) 
                         {
@@ -113,7 +97,7 @@ public class categoriaWS extends HttpServlet {
                     }
                     else
                     {
-                        MensajeADevolverEnFormatoJSON = "NO PUEDO DEVOLVER EL PRODUCTO PORQUE NO TENGO LA CLAVE PRIMARIA !!!.";
+                        MensajeADevolverEnFormatoJSON = "NO PUEDO DEVOLVER LA CATEGORIA PORQUE NO TENGO LA CLAVE PRIMARIA !!!.";
                     }
                 }
                 else
@@ -127,16 +111,60 @@ public class categoriaWS extends HttpServlet {
         try (PrintWriter out = response.getWriter())
         {
             out.println(MensajeADevolverEnFormatoJSON);
-            
+            /* TODO output your page here. You may use following sample code.
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ProductoWS</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ProductoWS at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+            */
         }
-    
-        */
-        
-        
-        
-        
     }
-          private String ProcesarAltaBajaModificacion(int TipoProceso,String ParametroEntrada)
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+    
+    private String ProcesarAltaBajaModificacion(int TipoProceso,String ParametroEntrada)
     {
         String SalidaJSON = "";
         if (!ParametroEntrada.isEmpty())
@@ -151,14 +179,17 @@ public class categoriaWS extends HttpServlet {
             {     
                 try 
                 {
-                    categoria categoriaAgregado = DAO.AddRecord(P);
-                    SalidaJSON = "Categoria Agregado " + categoriaAgregado.toString();
+                    categoria ProductoAgregado = DAO.AddRecord(P);
+                    SalidaJSON = "Categoria Agregado " + ProductoAgregado.toString();
                 } 
                 catch (ErroresGenerales ex)
                 {
                     SalidaJSON = ex.getMensajeDeErrorGeneral();
                 }
             }
+            
+            
+            // MensajeADevolverEnFormatoJSON = ProcesarAltaBajaModificacion(TipoProceso,ParametroEntrada);
             if (TipoProceso == 2) // es MODIFICACION
             {   
                 try 
@@ -185,7 +216,7 @@ public class categoriaWS extends HttpServlet {
                     boolean PudimosEliminar = DAO.DeleteRecord(P);
                     if (PudimosEliminar)
                     {
-                        SalidaJSON = "Categoria Eliminada !!!";
+                        SalidaJSON = "Categoria Eliminado !!!";
                     }      
                     else
                     {
@@ -202,19 +233,6 @@ public class categoriaWS extends HttpServlet {
         return SalidaJSON;        
     }
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -225,34 +243,6 @@ public class categoriaWS extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+   
 
 }

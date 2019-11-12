@@ -25,7 +25,7 @@ public class P03_ProbandoDeleteRecord {
         
             /*"insert into usuario (idusuario, usuarionombre, usuariopassword, usuarioemail, iddistribuidora)*/
         // TODO code application logic here
-          categoria ProductoEliminar = new categoria(Long.valueOf(2)," ",Long.valueOf(2));      
+          categoria ProductoEliminar = new categoria(Long.valueOf(2)," ",Long.valueOf(0));      
         
         categoriaDAO MyDAO = new categoriaDAO();
         

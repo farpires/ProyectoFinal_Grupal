@@ -7,54 +7,65 @@ package categoria;
 
 /**
  *
- * @author arpir
+ * @author DANIEL MALDONADO
  */
-public class categoria {
-    Long idcategoria;
-    String categorianombre;
-    Long iddistribuidora;
+public class categoria 
+{
+    Long CategoriaPK;
+    String CategoriaNombre;
+    Long IDDistribuidora;
 
-    public categoria(Long idcategoria, String categorianombre, Long iddistribuidora) {
-        this.idcategoria = idcategoria;
-        this.categorianombre = categorianombre;
-        this.iddistribuidora = iddistribuidora;
+    public categoria(Long CategoriaPK, String CategoriaNombre,Long IDDistribuidora)
+    {
+        this.CategoriaPK = CategoriaPK;
+        this.CategoriaNombre = CategoriaNombre;
+        this.IDDistribuidora = IDDistribuidora;
     }
 
-    public categoria() {
-         this.idcategoria = Long.valueOf(0);
-        this.categorianombre = " ";
-        this.iddistribuidora = Long.valueOf(0);
+    public categoria() 
+    {
+        this.CategoriaPK = Long.valueOf(0);
+        this.CategoriaNombre = "";
+        this.IDDistribuidora = Long.valueOf(0);
     }
 
-    public Long getIdcategoria() {
-        return idcategoria;
+
+
+
+    public Long getCategoriaPK() {
+        return CategoriaPK;
     }
 
-    public void setIdcategoria(Long idcategoria) {
-        this.idcategoria = idcategoria;
+    public void setCategoriaPK(Long CategoriaPK) {
+        this.CategoriaPK = CategoriaPK;
     }
 
-    public String getCategorianombre() {
-        return categorianombre;
+    public String getCategoriaNombre() {
+        return CategoriaNombre;
     }
 
-    public void setCategorianombre(String categorianombre) {
-        this.categorianombre = categorianombre;
+    public void setCategoriaNombre(String CategoriaNombre) {
+        this.CategoriaNombre = CategoriaNombre;
     }
 
-    public Long getIddistribuidora() {
-        return iddistribuidora;
+    public Long getIDDistribuidora() {
+        return IDDistribuidora;
     }
 
-    public void setIddistribuidora(Long iddistribuidora) {
-        this.iddistribuidora = iddistribuidora;
+    public void setIDDistribuidora(Long IDDistribuidora) {
+        this.IDDistribuidora = IDDistribuidora;
     }
+    
+    
 
     @Override
-    public String toString() {
-        return "categoria{" + "idcategoria=" + idcategoria + ", categorianombre=" + categorianombre + ", iddistribuidora=" + iddistribuidora + '}';
+    public String toString() 
+    {
+        return "Categoria{" + "CategoriaPK=" + CategoriaPK + ", CategoriaNombre=" + CategoriaNombre + ", IDDistribuidora=" + IDDistribuidora + '}';
     }
-    
-    
-    
+
+    void IDDistribuidora(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

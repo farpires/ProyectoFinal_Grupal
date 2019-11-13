@@ -83,7 +83,7 @@ public class categoriaDAO extends DAOGenerico implements DAOMetodos<categoria,ca
         try 
         {
             
-           STATEMENT = CON.getCon().prepareStatement("update categoria set idcategoria = ?  where categorianombre = ?, iddistribuidora = ?");
+           STATEMENT = CON.getCon().prepareStatement("update categoria set idcategoria = ?,  categorianombre = ? where iddistribuidora = 4");
             
             STATEMENT.setLong(1,Objeto.getCategoriaPK());
             

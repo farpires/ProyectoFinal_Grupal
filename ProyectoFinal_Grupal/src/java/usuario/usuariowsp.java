@@ -36,28 +36,32 @@ public class usuariowsp extends HttpServlet {
         String MensajeADevolverEnFormatoJSON = "";
         
         int TipoProceso = 0;
+        //hola
         TipoProceso = Integer.valueOf(request.getParameter("TipoProceso"));
         
         if (TipoProceso == 4) // Es una Consulta
         {
             String NombreProducto = "";    
             String ComandoSQL = ""; 
-            NombreProducto = request.getParameter("UsuarioNombreABuscar");
+            NombreProducto = request.getParameter("ProductoNombreABuscar");
             
             usuariodao MyUsuarioDAO = new usuariodao();
                                 
             if (NombreProducto.isEmpty())
             {
-                ComandoSQL = "select usuario.*,distribuidora.* from usuario inner join distribuidora on usuario.iddistribuidora = distribuidora.iddistribuidora";   
+              //  ComandoSQL="select * from usuario";
+               ComandoSQL = "select usuario.*,distribuidora.* from usuario inner join distribuidora on usuario.iddistribuidora = distribuidora.iddistribuidora";   
             }
             else
             {
-                ComandoSQL = "select usuario.*,distribuidora.* from usuario inner join distribuidora on usuario.iddistribuidora = distribuidora.iddistribuidora where usuario.usuarionombre like '%" + NombreProducto.trim() + "%'";
+               //ComandoSQL="select * from usuario";
+                
+//select usuario.*,distribuidora.* from usuario inner join distribuidora on usuario.iddistribuidora = distribuidora.iddistribuidora where usuario.usuarionombre like 'fabio%'
+                ComandoSQL = "select usuario.*,distribuidora.* from usuario inner join distribuidora on usuario.iddistribuidora = distribuidora.iddistribuidora where usuario.usuarionombre like '"+ NombreProducto.trim()+"%'";
               
 
-//ComandoSQL = "select usuario.*,usuario.usuarionombre from usuario inner join distribuidora on usuario.iddistribuidora = distribuidora.iddistribuidora where usuario.usuarionombre like '%" + NombreProducto.trim() + "%'";
+             //ComandoSQL = "select usuario.*,usuario.usuarionombre from usuario inner join distribuidora on usuario.iddistribuidora = distribuidora.iddistribuidora where usuario.usuarionombre like '%" + NombreProducto.trim() + "%'";
    
-
             }  
             
             try 

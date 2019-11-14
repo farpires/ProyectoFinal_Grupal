@@ -22,7 +22,7 @@ public class P08_ProbandoWS1 {
         /*LO QUE HACE EESTO ES CONVERTIR EN OBJ PRODUCTO EN UN OBJETO JSON PARA PASARLO COMO
         PARAMETRO EN EL WS ?TipoProceso=1&ParametroJSON= ...*/
         
-        producto P = new producto(Long.valueOf(10), "Fernisito coooordobes", "00000001", "250", "01/11/2019",Long.valueOf(1));
+        producto P = new producto(Long.valueOf(10), "Manaos uva 1500ml", "00000003", "85", "08/11/2019",Long.valueOf(1));
         Gson G = new Gson();
         
         String productoEnFormatoJSON = G.toJson(P);
